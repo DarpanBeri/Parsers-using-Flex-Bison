@@ -6,6 +6,8 @@ Program reads a file named **ex.txt**, scans the input, and determines if the st
 
 ### Grammar Stuff:
 
+**Note:** All valid statements end with ";".
+
 **Note:**
     * id :== identifire
     * exp :== expression
@@ -20,4 +22,21 @@ Program reads a file named **ex.txt**, scans the input, and determines if the st
     * id = exp;
 
 * The format of Expression is:
-    * id op id {op id} -- any lenght as long as paurs of op and id are added.
+    * id op id {op id} -- any lenght as long as pairs of op and id are added.
+
+* A parenthesis pair may be used to group any "id op id" combination.
+
+id :== any combinations of digits and chars. The first character must be a char.
+
+digit :== [0-9]
+char :== [a-z,A-Z]
+op :== +, -, *, /, %
+others :== =, ;
+
+
+
+
+
+
+
+
