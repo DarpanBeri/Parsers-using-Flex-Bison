@@ -9,9 +9,13 @@ Program reads a file named **ex.txt**, scans the input, and determines if the st
 **Note:** All valid statements end with ";".
 
 **Note:**
+
     * id :== identifire
+
     * exp :== expression
+
     * op :== operator
+    
     * char :== charcter
 
 * The only two valid statements are:
