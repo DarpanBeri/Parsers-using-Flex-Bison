@@ -29,8 +29,11 @@ Program reads a file named **ex.txt**, scans the input, and determines if the st
 id :== any combinations of digits and chars. The first character must be a char.
 
 digit :== [0-9]
+
 char :== [a-z,A-Z]
+
 op :== +, -, *, /, %
+
 others :== =, ;
 
 
