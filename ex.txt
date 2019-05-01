@@ -1,0 +1,7 @@
+first = one1 + two2 - three3 / four4 ;
+one1 * i8766e98ee + bignum
+thrid = old * thirty2 / b56 ;
+first == on1 + two2
+third = one1 + 24 - three3;
+one +- delta
+sixty6 / min = fourth;
