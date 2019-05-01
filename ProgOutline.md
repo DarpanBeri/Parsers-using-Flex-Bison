@@ -37,20 +37,26 @@ others :== =, ;
 ### Valid Statements and their Breakdown:
 
 - first = one1 + two2 - three3 / four4 ;
+    
     id = id op id op id op id ;
 
 - second = one1 * (two2 * three3) ;
+    
     id = id op (id op id) ;
 
 - second = one1 * (two2 * three3) ;
+    
     id = id op (id op id) ;
 
 - third = ONE + twenty - three3 ;
+    
     id = id op id op id ;
 
 - third = old * thirty2 / b567 ;
+    
     id = id op id op id ;
 
 - one1 * i8766e98e + bignum
+    
     id op id op id
 
