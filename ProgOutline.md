@@ -30,11 +30,13 @@ Program reads a file named **ex.txt**, scans the input, and determines if the st
 
 * A parenthesis pair may be used to group any "id op id" combination.
 
-id :== any combinations of digits and chars. The first character must be a char.
+id :== any combinations of digits and chars. The first character must be a char., 
+    
+    [a-zA-Z0-9]+
 
-digit :== [0-9]
+digit :== [0-9]+
 
-char :== [a-z,A-Z]
+char :== [a-z,A-Z]+
 
 op :== +, -, *, /, %
 
