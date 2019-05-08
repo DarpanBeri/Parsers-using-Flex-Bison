@@ -11,52 +11,66 @@
 #### The Program:
     A simple parser that can evaluate statements based of grammar specified below.
 
+#### Grammar Specifications:
+    ADD STUFF HERE.
+
 #### Files Included:
+
+**exp.l**:
+
+    File containing instructions for flex, to identify tokens and send it to GNU Bison file.
+
+**exp.y**:
+
+    File containing instructions and grammar for GNU Bison to analyze the input and check if a line of text is valid according to the grammar.
+
+**ex.txt**:
+
+    My test file.
+
+**Makefile**:
+
+    Script for easier compilation of this program.
+
 **README.md**:
 
     A README file describing the program and detailing its files.
 
-#### Grammar Used:
-
 #### Compilation Instructions:
+
 **Make Instructions:**
 
     make all:
-    	compiles the xed file
+    	Compiles the program
 
     make clear:
-    	deletes the xed file, the <filename>.sic file, and the <filename>.lis file
+    	Deletes additional files created in make.
 
 **Running the Program:**
 
-    xed <filename>
-
-**NOTE:** <> are not part of the command.
+    make all
+    exp
 
 #### Operating Instructions:
-**Required Input**:
 
-    The input filename needs to be the filename that has a .obj and a .sym file extension.
-        The .obj file needs to be an object file of SIC/XE machine.
-        The .sym file needs to be a symtab and littab file for the SIC/XE machine,
+**Required Software**:
+
+    The system must be a UNIX based system with C, C compiler, Flex and GNU Bison installed.
 
 #### Significant Design Decisions:
-    The data from the .sym file is stored in a linked list.
-    We store interpreted text records inside a vector while we are reading the object file.
+    The program is made with Flex and Bison instead of C++.
 
 #### Extra features:
 
-    Makefile also cleans <filename>.sic and <filename>.lis in addition to the required xed.
+    None.
 
 #### Known Deficiencies and Bugs:
-**Known Bugs and Deficiencies**
-    If a LDB command is encountered and it is not immediate addressing, we do not know what is in the base register and therefore cannot calculate base relative addressing.
+
+    * The Program does not print out the line inputs.
+    * The Program does not "reset" after every line.
 
 #### Lessons Learned:
-* An algorithm and design takes 1 month to figure out. The actual implementation requires 1 week.
-* Quality of work matters over the quantity of work done.
-* Pair programming works well with small groups.
-* Software Design Document helps to plan out the approach to deal with a problem.
-* Motivation is important for teams.
-* Check for compatability with target system.
+* Learning a new language does not take long if one knows the core concepts behind most languages.
+* There are many powerful tools available which most individuals ignore.
+* Making a compiler is cool and frustrating.
 <!-----------------------------------------[ EOF: README.md ]--------------------------------->
