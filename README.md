@@ -12,7 +12,28 @@
     A simple parser that can evaluate statements based of grammar specified below.
 
 #### Grammar Specifications:
-    ADD STUFF HERE.
+    exp: statements
+
+    statements: statements statement
+                | statement
+
+    statement:  assignment
+                | correctExpression
+
+    assignment: ID = expression ;
+
+    correctExpression: expression ;
+
+    expression: expression OP ( expression )
+                | expression OP ID
+                | ID
+
+    ID: Any combinations of chars and digits but the first character has to be a char.
+
+    OP: '+','-','*','/','%'
+
+    **Note**:
+      The above is pseudocode and not the exact code used in exp.y. Also note the use of ';', that is accurate to exp.y's grammar.
 
 #### Files Included:
 
