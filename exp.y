@@ -6,7 +6,7 @@
   // Declare stuff from Flex that Bison needs to know about:
   extern int yylex();
   extern int yyparse();
-  extern int line_num;
+  int line_num = 1;
   extern FILE *yyin;
 
   void yyerror(const char *s);
@@ -25,11 +25,19 @@
 %token <otherval> SEMICOLON
 %token <opval> OP
 %token <otherval> EQUALS
+%token NEWLINE
 
 
 %%
-exp:  correctExpression
-      | assignment
+statements:
+      statements statement NEWLINE      {line_num++;}
+      | statement NEWLINE               {line_num++;}
+      | statements statement
+      | statement
+      ;
+statement:
+      assignment
+      | correctExpression
       ;
 assignment:
       ID EQUALS expression SEMICOLON
@@ -38,8 +46,8 @@ correctExpression:
       expression SEMICOLON
       ;
 expression:
-      ID
-      | expression OP ID            
+      expression OP ID
+      | ID
       ;
 %%
 
