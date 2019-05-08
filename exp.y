@@ -26,12 +26,14 @@
 %token <opval> OP
 %token <otherval> EQUALS
 %token NEWLINE
+%token OPENBRACKET
+%token CLOSEDBRACKET
 
 
 %%
 statements:
       error NEWLINE
-      | statements statement NEWLINE      {cout << endl << ">> Valid statement." << endl << endl; line_num++;}
+      | statements statement NEWLINE    {cout << endl << ">> Valid statement." << endl << endl; line_num++;}
       | statement NEWLINE               {cout << endl << ">> Valid statement."<< endl << endl; line_num++;}
       | statements statement
       | statement
@@ -47,7 +49,8 @@ correctExpression:
       expression SEMICOLON
       ;
 expression:
-      expression OP ID
+      expression OP OPENBRACKET expression CLOSEDBRACKET
+      | expression OP ID
       | ID
       ;
 %%
@@ -70,8 +73,9 @@ int main(int, char**) {
 
   // Parse through the input:
   yyparse();
+  cout << "------------[End Of Program]----------" << endl;
 }
 
 void yyerror(const char *s) {
-  cout << ">> Error on line " << line_num << ": " << s << endl;
+  cout << endl << ">> Error on line " << line_num << ": " << s << endl;
 }
