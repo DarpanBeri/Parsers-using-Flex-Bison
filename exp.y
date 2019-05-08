@@ -30,8 +30,9 @@
 
 %%
 statements:
-      statements statement NEWLINE      {line_num++;}
-      | statement NEWLINE               {line_num++;}
+      error NEWLINE
+      | statements statement NEWLINE      {cout << endl << ">> Valid statement." << endl << endl; line_num++;}
+      | statement NEWLINE               {cout << endl << ">> Valid statement."<< endl << endl; line_num++;}
       | statements statement
       | statement
       ;
@@ -56,13 +57,15 @@ int main(int, char**) {
   // open a file handle to a particular file:
   FILE *myfile = fopen("ex.txt", "r");
 
+  cout << endl;
+
   // make sure it's valid:
   if (!myfile) {
     cout << "Unable to open file. File invalid." << endl;
     return -1;
   }
 
-  // Set Flex to read from it instead of defaulting to STDIN:
+  // Set Flex to read from the file:
   yyin = myfile;
 
   // Parse through the input:
@@ -70,5 +73,5 @@ int main(int, char**) {
 }
 
 void yyerror(const char *s) {
-  cout << "EEK, parse error on line " << line_num << "!  Message: " << s << endl;
+  cout << ">> Error on line " << line_num << ": " << s << endl;
 }
