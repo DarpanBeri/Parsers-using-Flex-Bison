@@ -7,6 +7,7 @@
  *************************************************************/
 
   #include <stdbool.h> // Needed for Boolean
+  #include <stdio.h>  // Needed for file handling.
   #include <string.h> // Need for making char Array
   #include <iostream> // Needed for cout
   using namespace std;
