@@ -16,6 +16,7 @@
 
     statements: statements statement
                 | statement
+                | INVALIDTOKEN
 
     statement:  assignment
                 | correctExpression
@@ -87,7 +88,6 @@
 
 #### Known Deficiencies and Bugs:
 
-    * The lexical defininiton of ID considers numbers as ID. Example, 666 is a valid ID.
     * The program considers 'ID;' as valid ID. Example, one + delta; is valid.
 
 #### Lessons Learned:

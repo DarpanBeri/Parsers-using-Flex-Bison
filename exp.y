@@ -1,8 +1,7 @@
 %{
-  #include <stdbool.h>
-  #include <string.h>
-  #include <cstdio>
-  #include <iostream>
+  #include <stdbool.h> // Needed for Boolean
+  #include <string.h> // Need for making char Array
+  #include <iostream> // Needed for cout
   using namespace std;
 
   // Declare stuff from Flex that Bison needs to know about:
@@ -10,7 +9,7 @@
   extern int yyparse();
   int line_num = 1; // Keeps track of the line number
   bool errorInStatement = false; // To know if error in statement or not.
-  char errorArray[9999][500];
+  char errorArray[9999][500]; // char array to store Error messages.
   extern FILE *yyin; // Pointer to the file to be read.
 
   void yyerror(const char *s);
