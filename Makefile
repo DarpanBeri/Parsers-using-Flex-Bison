@@ -1,6 +1,27 @@
 ###########################################################
-#Name: Darpan Beri(cssc0429, Red id: 820880704)
+#Name: Blake Meyers(cssc0430, Red id: 819557369), Darpan Beri(cssc0429, Red id: 820880704), Zach Selchau(cssc0418, Red id: 820533188)
 #Project: CS530 Assignment 2
 #File: Makefile
 #Notes: Allows for easy compilation of the program.
 ###########################################################
+
+#variables
+#BB=bison
+#FF=flex
+#CC=g++
+
+all: exp
+
+exp.tab.c exp.tab.h:	exp.y
+	bison -d exp.y
+
+lex.yy.c: exp.l exp.tab.h
+	flex exp.l
+
+exp: lex.yy.c exp.tab.c exp.tab.h
+	gcc -o exp exp.tab.c lex.yy.c
+
+clean:
+	rm exp exp.tab.c lex.yy.c exp.tab.h
+
+#######################[ EOF: Makefile ]###################
