@@ -1,4 +1,6 @@
 %{
+  #include <stdbool.h>
+  #include <string.h>
   #include <cstdio>
   #include <iostream>
   using namespace std;
@@ -6,13 +8,14 @@
   // Declare stuff from Flex that Bison needs to know about:
   extern int yylex();
   extern int yyparse();
-  int line_num = 1;
-  extern FILE *yyin;
+  int line_num = 1; // Keeps track of the line number
+  bool errorInStatement = false; // To know if error in statement or not.
+  char errorArray[9999][500];
+  extern FILE *yyin; // Pointer to the file to be read.
 
   void yyerror(const char *s);
 %}
 
-%define parse.lac full
 %define parse.error verbose
 
 %union {
@@ -28,15 +31,38 @@
 %token NEWLINE
 %token OPENBRACKET
 %token CLOSEDBRACKET
+%token INVALIDTOKEN
 
 
 %%
+exp:
+      statements
 statements:
-      error NEWLINE
-      | statements statement NEWLINE    {cout << endl << ">> Valid statement." << endl << endl; line_num++;}
-      | statement NEWLINE               {cout << endl << ">> Valid statement."<< endl << endl; line_num++;}
-      | statements statement
-      | statement
+      error NEWLINE                     {if(errorInStatement){
+        errorInStatement = false;
+        cout << endl << ">> Error on line " << line_num << ": " << errorArray[line_num] << endl << endl; line_num++;
+        }}
+      | statements statement NEWLINE    {if(errorInStatement){
+        errorInStatement = false;
+        cout << endl << ">> Error on line " << line_num << ": " << errorArray[line_num] << endl << endl; line_num++;
+        }else
+        {cout << endl << ">> Valid statement." << endl << endl; line_num++;}
+      }
+      | statement NEWLINE               {if(errorInStatement){
+        errorInStatement = false;
+        cout << endl << ">> Error on line " << line_num << ": " << errorArray[line_num] << endl << endl; line_num++;
+        }else
+        {cout << endl << ">> Valid statement." << endl << endl; line_num++;}
+      }
+      | statements statement          {if(errorInStatement){
+        errorInStatement = false;
+        cout << endl << ">> Error on line " << line_num << ": " << errorArray[line_num] << endl << endl;
+        }}
+      | statement                     {if(errorInStatement){
+        errorInStatement = false;
+        cout << endl << ">> Error on line " << line_num << ": " << errorArray[line_num] << endl << endl;
+        }}
+      | INVALIDTOKEN                     {cout << "Invalid Token in line " << line_num << endl << endl;}
       ;
 statement:
       assignment
@@ -53,6 +79,7 @@ expression:
       | expression OP ID
       | ID
       ;
+
 %%
 
 int main(int, char**) {
@@ -73,9 +100,11 @@ int main(int, char**) {
 
   // Parse through the input:
   yyparse();
+
   cout << "------------[End Of Program]----------" << endl;
 }
 
 void yyerror(const char *s) {
-  cout << endl << ">> Error on line " << line_num << ": " << s << endl;
+  errorInStatement = true;
+  strcpy(errorArray[line_num], s);
 }

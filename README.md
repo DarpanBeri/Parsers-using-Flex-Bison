@@ -87,8 +87,8 @@
 
 #### Known Deficiencies and Bugs:
 
-    * The Program does not print out the line inputs.
-    * The Program does not "reset" after every line.
+    * The lexical defininiton of ID considers numbers as ID. Example, 666 is a valid ID.
+    * The program considers 'ID;' as valid ID. Example, one + delta; is valid.
 
 #### Lessons Learned:
 * Learning a new language does not take long if one knows the core concepts behind most languages.
