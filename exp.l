@@ -1,6 +1,12 @@
 %option noyywrap
 
 %{
+  /*************************************************************
+ Name: Darpan Beri(cssc0429, Red id: 820880704)
+ Project: CS530 Assignment 3
+ File: exp.l
+ Notes: This file cointains the lexical rules, written in Flex.
+ *************************************************************/
   #include <iostream> // Needed for cout
   using namespace std;
   #include "exp.tab.h" // to get the token types from Bison

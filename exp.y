@@ -1,4 +1,11 @@
 %{
+  /*************************************************************
+ Name: Darpan Beri(cssc0429, Red id: 820880704)
+ Project: CS530 Assignment 3
+ File: exp.y
+ Notes: This file cointains the grammar for the compiler exp, written in GNU Bison.
+ *************************************************************/
+
   #include <stdbool.h> // Needed for Boolean
   #include <string.h> // Need for making char Array
   #include <iostream> // Needed for cout
