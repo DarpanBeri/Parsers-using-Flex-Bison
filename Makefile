@@ -19,7 +19,7 @@ lex.yy.c: exp.l exp.tab.h
 	flex exp.l
 
 exp: lex.yy.c exp.tab.c exp.tab.h
-	gcc -o exp exp.tab.c lex.yy.c
+	g++ exp.tab.c lex.yy.c -Llfl -o exp
 
 clean:
 	rm exp exp.tab.c lex.yy.c exp.tab.h

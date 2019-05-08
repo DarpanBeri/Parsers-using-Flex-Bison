@@ -1,6 +1,6 @@
 %{
-  #include <cstdio.h>
-  #include <iostream.h>
+  #include <cstdio>
+  #include <iostream>
   using namespace std;
 
   // Declare stuff from Flex that Bison needs to know about:
@@ -38,8 +38,8 @@ correctExpression:
       expression SEMICOLON
       ;
 expression:
-      ID                            {cout << "Testing, expression id here: " << $1 << endl;}
-      | expression OP ID            {cout << "Testing, expression: expressionop id here " << $2 << " " << $3 << endl;}
+      ID
+      | expression OP ID            
       ;
 %%
 
