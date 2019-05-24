@@ -1,3 +1,10 @@
+<!-----------------------------------------------------------------
+ Name: Darpan Beri
+ Project: Parsers-using-Flex-Bison
+ File: ProgOutline.md
+ Notes: A .md file describing my thought process.
+--------------------------------------------------------------------->
+
 ## Program Outline
 
 Program reads a file named **ex.txt**, scans the input, and determines if the statement(s) in the file is/are valid.
@@ -15,7 +22,7 @@ Program reads a file named **ex.txt**, scans the input, and determines if the st
     * exp :== expression
 
     * op :== operator
-    
+
     * char :== charcter
 
 * The only two valid statements are:
@@ -30,8 +37,8 @@ Program reads a file named **ex.txt**, scans the input, and determines if the st
 
 * A parenthesis pair may be used to group any "id op id" combination.
 
-id :== any combinations of digits and chars. The first character must be a char., 
-    
+id :== any combinations of digits and chars. The first character must be a char.,
+
     [a-zA-Z0-9]+
 
 digit :== [0-9]+
@@ -46,26 +53,25 @@ others :== =, ;
 ### Valid Statements and their Breakdown:
 
 - first = one1 + two2 - three3 / four4 ;
-    
+
     id = id op id op id op id ;
 
 - second = one1 * (two2 * three3) ;
-    
+
     id = id op (id op id) ;
 
 - second = one1 * (two2 * three3) ;
-    
+
     id = id op (id op id) ;
 
 - third = ONE + twenty - three3 ;
-    
+
     id = id op id op id ;
 
 - third = old * thirty2 / b567 ;
-    
+
     id = id op id op id ;
 
 - one1 * i8766e98e + bignum
-    
-    id op id op id
 
+    id op id op id

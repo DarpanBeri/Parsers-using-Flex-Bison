@@ -1,7 +1,7 @@
 %{
   /*************************************************************
- Name: Darpan Beri(cssc0429, Red id: 820880704)
- Project: CS530 Assignment 3
+ Name: Darpan Beri
+ Project: Parsers-using-Flex-Bison
  File: exp.y
  Notes: This file cointains the grammar for the compiler exp, written in GNU Bison.
  *************************************************************/

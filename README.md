@@ -1,12 +1,12 @@
 <!-----------------------------------------------------------------
- Name: Darpan Beri(cssc0429, Red id: 820880704)
- Project: CS530 Assignment 3
+ Name: Darpan Beri
+ Project: Parsers-using-Flex-Bison
  File: README.md
  Notes: A README file describing the program and detailing its files.
 --------------------------------------------------------------------->
 
-# CS530 ,Spring 2019 Assignment3
-### Darpan Beri(cssc0429, Red id: 820880704)
+# Parsers-using-Flex-Bison
+### Darpan Beri
 
 #### The Program:
     A simple parser that can evaluate statements based of grammar specified below.

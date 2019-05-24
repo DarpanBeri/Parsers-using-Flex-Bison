@@ -2,8 +2,8 @@
 
 %{
   /*************************************************************
- Name: Darpan Beri(cssc0429, Red id: 820880704)
- Project: CS530 Assignment 3
+ Name: Darpan Beri
+ Project: Parsers-using-Flex-Bison
  File: exp.l
  Notes: This file cointains the lexical rules, written in Flex.
  *************************************************************/

@@ -1,6 +1,6 @@
 ###########################################################
-#Name: Darpan Beri(cssc0429, Red id: 820880704)
-#Project: CS530 Assignment 3
+#Name: Darpan Beri
+#Project: Parsers-using-Flex-Bison
 #File: Makefile
 #Notes: Allows for easy compilation of the program.
 ###########################################################
